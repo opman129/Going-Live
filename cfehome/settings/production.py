@@ -20,8 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'o!uew-zq*&u50p#09e9t_%xb+cr(8$ju_8y&c$@kdo%cf@4=6@'
-
+SECRET_KEY = os.environ.get('SECRET_KEY', 'SOME+RANDOM+KEY(z9+3vnm(jb0u@&w68t#5_e8s9-lbfhv-')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -135,5 +134,4 @@ db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 DATABASES['default']['CONN_MAX_AGE'] = 500
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'SOME+RANDOM+KEY(z9+3vnm(jb0u@&w68t#5_e8s9-lbfhv-')  
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') heroku config:set SECRET_KEY=<your-django-secret-key>
+#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') heroku config:set SECRET_KEY=<your-django-secret-key>
